@@ -12,3 +12,5 @@ RUN apt update && \
 # RUN adduser -D -u 1000 guto - criar usuário
 # RUN SED -I 'S/1000/1001/G' /etc/passwd 
 USER node 
+
+WORKDIR /home/node/app
