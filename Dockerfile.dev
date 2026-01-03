@@ -4,6 +4,9 @@ RUN apt update && \
   apt install -y curl && \
   npm install -g nodemon
 
+COPY start.sh /
+RUN chmod +x /start.sh
+
 # debian 
 # RUN useradd -m -u 1000 guto - criar um usuario
 # RUN usermod -u 1000 guto
@@ -15,10 +18,11 @@ USER node
 
 WORKDIR /home/node/app
 
-COPY package.json ./
-RUN npm install
+#COPY package.json ./
+#RUN npm install
 
 
 EXPOSE 3000
 
-CMD ["tail", "-f", "/dev/null"]
+#CMD ["tail", "-f", "/dev/null"]
+CMD ["/start.sh"]
